@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class ItemPopularWidget extends StatelessWidget {
   final String? name;
-  final String? urlPhoto;
+  final Widget? widgetPhoto;
   final String? releaseDate;
   final VoidCallback? onPress;
 
   const ItemPopularWidget(
-      {Key? key, this.name, this.urlPhoto, this.releaseDate, this.onPress})
+      {Key? key, this.name, this.widgetPhoto, this.releaseDate, this.onPress})
       : super(key: key);
 
   @override
@@ -21,10 +21,7 @@ class ItemPopularWidget extends StatelessWidget {
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(10),
-                  child: Image.asset(
-                    urlPhoto!,
-                    fit: BoxFit.fill,
-                  ),
+                  child: widgetPhoto,
                 ),
                 Positioned(
                   bottom: 10,

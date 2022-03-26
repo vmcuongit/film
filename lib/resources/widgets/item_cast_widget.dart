@@ -1,3 +1,5 @@
+import 'package:film/data_sources/api_services.dart';
+import 'package:film/resources/strings.dart';
 import 'package:flutter/material.dart';
 
 class ItemCastWidget extends StatelessWidget {
@@ -17,7 +19,12 @@ class ItemCastWidget extends StatelessWidget {
         children: [
           Expanded(
               child: ClipRRect(
-            child: Image.asset(urlPhoto!),
+            child: (urlPhoto != null)
+                ? Image.network(
+                    ApiServices.IMAGE_MOVIE_URL + urlPhoto!,
+                    fit: BoxFit.fill,
+                  )
+                : Image.asset(IMAGE_DEFAULT_CAST, fit: BoxFit.fitHeight),
             borderRadius: BorderRadius.circular(8),
           )),
           const SizedBox(
